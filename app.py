@@ -1,3 +1,4 @@
+import os
 from flask import Flask , render_template, request, redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
@@ -32,5 +33,5 @@ def index():
         return render_template('index.html')
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(debug=os.environ.get('FLASK_DEBUG', '') == '1')
 
